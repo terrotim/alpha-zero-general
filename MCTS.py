@@ -115,6 +115,7 @@ class MCTS():
         next_s = self.game.getCanonicalForm(next_s, next_player)
 
         v = self.search(next_s)
+        v *= -next_player
 
         if (s,a) in self.Qsa:
             self.Qsa[(s,a)] = (self.Nsa[(s,a)]*self.Qsa[(s,a)] + v)/(self.Nsa[(s,a)]+1)
