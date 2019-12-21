@@ -1,11 +1,11 @@
 from Coach import Coach
-from connect4.Connect4Game import Connect4Game
-from connect4.tensorflow.NNet import NNetWrapper as nn
+from sotf.SotfGame import SotfGame
+from sotf.tensorflow.NNet import NNetWrapper as nn
 from utils import dotdict
 
 args = dotdict({
-    'numIters': 1000,
-    'numEps': 100,
+    'numIters': 20,
+    'numEps': 500,
     'tempThreshold': 15,
     'updateThreshold': 0.6,
     'maxlenOfQueue': 200000,
@@ -21,7 +21,7 @@ args = dotdict({
 })
 
 if __name__=="__main__":
-    g = Connect4Game()
+    g = SotfGame()
     nnet = nn(g)
 
     if args.load_model:

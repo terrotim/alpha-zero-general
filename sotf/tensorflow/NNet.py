@@ -11,14 +11,14 @@ from pytorch_classification.utils import Bar, AverageMeter
 from NeuralNet import NeuralNet
 
 import tensorflow as tf
-from .Connect4NNet import Connect4NNet as onnet
+from .SotfNNet import SotfNNet as onnet
 
 args = dotdict({
     'lr': 0.001,
     'dropout': 0.3,
     'epochs': 10,
-    'batch_size': 64,
-    'num_channels': 512,
+    'batch_size': 256,
+    'num_channels': 128,
 })
 
 
@@ -97,7 +97,7 @@ class NNetWrapper(NeuralNet):
         start = time.time()
 
         # preparing input
-        board = board[np.newaxis, :, :]
+        board = board[np.newaxis, :, np.newaxis]
 
         # run
         prob, v = self.sess.run([self.nnet.prob, self.nnet.v], feed_dict={self.nnet.input_boards: board, self.nnet.dropout: 0, self.nnet.isTraining: False})
