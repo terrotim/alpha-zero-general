@@ -10,15 +10,17 @@ from utils import *
 from pytorch_classification.utils import Bar, AverageMeter
 from NeuralNet import NeuralNet
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from .SotfNNet import SotfNNet as onnet
 
+tf.disable_v2_behavior()
 args = dotdict({
     'lr': 0.001,
     'dropout': 0.3,
     'epochs': 10,
     'batch_size': 256,
     'num_channels': 128,
+    'cuda': True
 })
 
 
