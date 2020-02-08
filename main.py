@@ -4,8 +4,8 @@ from sotf.tensorflow.NNet import NNetWrapper as nn
 from utils import dotdict
 
 args = dotdict({
-    'numIters': 20,
-    'numEps': 500,
+    'numIters': 100,
+    'numEps': 1000,
     'tempThreshold': 15,
     'updateThreshold': 0.6,
     'maxlenOfQueue': 200000,
@@ -16,7 +16,7 @@ args = dotdict({
     'checkpoint': './temp/',
     'load_model': True,
     'load_folder_file': ('./temp/','best.pth.tar'),
-    'numItersForTrainExamplesHistory': 20,
+    'numItersForTrainExamplesHistory': 30,
 
 })
 
