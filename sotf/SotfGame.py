@@ -22,6 +22,7 @@ class SotfGame(Game):
 
     def getInitBoard(self):
         # main 4x12 board, 2 pboards size 51 (both with a 3 reserve board and a 48 tile board), 1 first_claim, and 1 action_num
+        np.random.shuffle(self.board.layout[:self.height*self.width])
         return self.board.layout
 
     def getBoardSize(self):
@@ -119,8 +120,10 @@ class SotfGame(Game):
         tile_board = tiles.reshape(self.height,self.width)
         pi_board = np.asarray(pi[:-1]).reshape(self.height,self.width,3)
         
-        t_perms = list(permutations(tile_board))
-        p_perms = list(permutations(pi_board))
+        #t_perms = list(permutations(tile_board))
+        #p_perms = list(permutations(pi_board))
+        t_perms = [tile_board]
+        p_perms = [pi_board]
         
         assert len(t_perms) == len(p_perms)
 
@@ -141,7 +144,7 @@ class SotfGame(Game):
         return [(board.reshape(self.getBoardSize()),pi)]
         
     def stringRepresentation(self, board):
-        return str(board)
+        return board.tostring()
 
 
 def display(board):
