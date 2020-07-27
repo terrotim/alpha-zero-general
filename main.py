@@ -3,13 +3,13 @@ import coloredlogs
 
 """
 from Coach import Coach
-from connect4.Connect4Game import Connect4Game
+from connect4.Connect4Game import Connect4Game as Game
 from connect4.tensorflow.NNet import NNetWrapper as nn
 from utils import dotdict
 """
 
 from Coach import Coach
-from sotf.SotfGame import SotfGame
+from sotf.SotfGame import SotfGame as Game
 from sotf.tensorflow.NNet import NNetWrapper as nn
 from utils import dotdict
 
@@ -19,8 +19,8 @@ log = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')  # Change this to DEBUG to see more info.
 
 args = dotdict({
-    'numIters': 100,
-    'numEps': 1000,
+    'numIters': 50,
+    'numEps': 500,
     'tempThreshold': 15,
     'updateThreshold': 0.55,
     'maxlenOfQueue': 2000000,
@@ -32,14 +32,15 @@ args = dotdict({
     'checkpoint': './temp/',
     'load_model': True,
     'load_folder_file': ('./temp/','best.pth.tar'),
-    'numItersForTrainExamplesHistory': 20,
+    'numItersForTrainExamplesHistory': 30,
 
 })
 
 
 def main():
     log.info('Loading %s...', Game.__name__)
-    g = SotfGame()
+    g = Game()
+    #g = SotfGame()
     #g = Connect4Game()
 
     log.info('Loading %s...', nn.__name__)

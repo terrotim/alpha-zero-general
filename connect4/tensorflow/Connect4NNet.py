@@ -1,11 +1,15 @@
+import os
 import sys
 sys.path.append('..')
 from utils import *
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 ## Code based on OthelloNNet with minimal changes.
 
+tf.disable_v2_behavior()
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class Connect4NNet():
     def __init__(self, game, args):

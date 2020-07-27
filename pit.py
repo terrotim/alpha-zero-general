@@ -1,9 +1,11 @@
 import Arena
 from MCTS import MCTS
 
+
 from sotf.SotfGame import SotfGame, display
 from sotf.SotfPlayers import *
 from sotf.tensorflow.NNet import NNetWrapper as NNet
+
 
 """
 from connect4.Connect4Game import Connect4Game, display
@@ -86,16 +88,16 @@ args2 = dotdict({'numMCTSSims': 25, 'cpuct':1.0})
 mcts2 = MCTS(g, n2, args2)
 n2p = lambda x: np.argmax(mcts2.getActionProb(x, temp=0))
 
-"""
+
 n3 = NNet(g)
 n3.load_checkpoint('./pretrained_models/sotf/random','best.pth.tar')
 args3 = dotdict({'numMCTSSims': 25, 'cpuct':1.0})
 mcts3 = MCTS(g, n3, args3)
 n3p = lambda x: np.argmax(mcts3.getActionProb(x, temp=0))
-"""
+
 
 #arena = Arena.Arena(rp, rp2, g, display=display)
-arena = Arena.Arena(n1p, n2p, g, display=display)
+arena = Arena.Arena(n1p, n3p, g, display=display)
 print(arena.playGames(100, verbose=True))
 
 """

@@ -9,7 +9,7 @@ sys.path.append('../../')
 from utils import *
 from NeuralNet import NeuralNet
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from .Connect4NNet import Connect4NNet as onnet
 
 args = dotdict({
@@ -18,6 +18,7 @@ args = dotdict({
     'epochs': 10,
     'batch_size': 64,
     'num_channels': 512,
+    'cuda': True
 })
 
 
