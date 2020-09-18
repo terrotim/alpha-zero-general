@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')  # Change this to DEBUG to see more info.
 
 args = dotdict({
-    'numIters': 50,
+    'numIters': 100,
     'numEps': 500,
     'tempThreshold': 15,
     'updateThreshold': 0.55,
@@ -27,12 +27,12 @@ args = dotdict({
     'numMCTSSims': 25,
     'arenaCompare': 100,
     'cpuct': 1,
-    'dirichletAlpha': 1.5,
+    'dirichletAlpha': 1.0,
     
     'checkpoint': './temp/',
     'load_model': True,
     'load_folder_file': ('./temp/','best.pth.tar'),
-    'numItersForTrainExamplesHistory': 30,
+    'numItersForTrainExamplesHistory': 50,
 
 })
 

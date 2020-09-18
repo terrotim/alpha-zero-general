@@ -22,7 +22,7 @@ class SotfGame(Game):
 
     def getInitBoard(self):
         # main 4x12 board, 2 pboards size 51 (both with a 3 reserve board and a 48 tile board), 1 first_claim, and 1 action_num
-        np.random.shuffle(self.board.layout[:self.height*self.width])
+        #np.random.shuffle(self.board.layout[:self.height*self.width])
         return self.board.layout
 
     def getBoardSize(self):

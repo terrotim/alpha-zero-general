@@ -158,4 +158,4 @@ class Coach():
             log.info('Loading done!')
 
             # examples based on the model were already collected (loaded)
-            self.skipFirstSelfPlay = False
+            self.skipFirstSelfPlay = True

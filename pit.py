@@ -54,13 +54,13 @@ hp = HumanOthelloPlayer(g).play
 
 # nnet players
 
-
+"""
 n1 = NNet(g)
 n1.load_checkpoint('./temp/','temp.pth.tar')
 args1 = dotdict({'numMCTSSims': 25, 'cpuct':1.0})
 mcts1 = MCTS(g, n1, args1)
 n1p = lambda x: np.argmax(mcts1.getActionProb(x, temp=0))
-
+"""
 """
 if mini_othello:
     n1.load_checkpoint('./pretrained_models/othello/pytorch/','6x100x25_best.pth.tar')
@@ -90,14 +90,14 @@ n2p = lambda x: np.argmax(mcts2.getActionProb(x, temp=0))
 
 
 n3 = NNet(g)
-n3.load_checkpoint('./pretrained_models/sotf/random','best.pth.tar')
+n3.load_checkpoint('./pretrained_models/sotf/fixed','best.pth.tar')
 args3 = dotdict({'numMCTSSims': 25, 'cpuct':1.0})
 mcts3 = MCTS(g, n3, args3)
 n3p = lambda x: np.argmax(mcts3.getActionProb(x, temp=0))
 
 
 #arena = Arena.Arena(rp, rp2, g, display=display)
-arena = Arena.Arena(n1p, n3p, g, display=display)
+arena = Arena.Arena(n2p, rp, g, display=display)
 print(arena.playGames(100, verbose=True))
 
 """
