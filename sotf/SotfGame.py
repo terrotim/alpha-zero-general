@@ -22,7 +22,7 @@ class SotfGame(Game):
 
     def getInitBoard(self):
         # main 4x12 board, 2 pboards size 51 (both with a 3 reserve board and a 48 tile board), 1 first_claim, and 1 action_num
-        #np.random.shuffle(self.board.layout[:self.height*self.width])
+        np.random.shuffle(self.board.layout[:self.height*self.width])
         return self.board.layout
 
     def getBoardSize(self):
@@ -109,7 +109,7 @@ class SotfGame(Game):
         return np.concatenate((tiles,p_tiles[::player].flatten(),p_spirits[::player].flatten(),[first_claim],[action_num]))
 
     def getSymmetries(self, board, pi):
-        """
+        
         b = np.copy(board)
         tiles = b[:self.height*self.width]
         p_tiles = b[self.height*self.width:self.height*self.width*3]
@@ -140,8 +140,8 @@ class SotfGame(Game):
                 syms.append(sym)
         
         return syms
-        """
-        return [(board.reshape(self.getBoardSize()),pi)]
+        
+        #return [(board.reshape(self.getBoardSize()),pi)]
         
     def stringRepresentation(self, board):
         return board.tostring()

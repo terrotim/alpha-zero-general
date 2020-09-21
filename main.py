@@ -1,3 +1,6 @@
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import logging
 import coloredlogs
 
@@ -20,7 +23,7 @@ coloredlogs.install(level='INFO')  # Change this to DEBUG to see more info.
 
 args = dotdict({
     'numIters': 100,
-    'numEps': 500,
+    'numEps': 200,
     'tempThreshold': 15,
     'updateThreshold': 0.55,
     'maxlenOfQueue': 2000000,
@@ -30,9 +33,9 @@ args = dotdict({
     'dirichletAlpha': 1.0,
     
     'checkpoint': './temp/',
-    'load_model': True,
+    'load_model': False,
     'load_folder_file': ('./temp/','best.pth.tar'),
-    'numItersForTrainExamplesHistory': 50,
+    'numItersForTrainExamplesHistory': 20,
 
 })
 

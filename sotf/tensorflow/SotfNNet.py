@@ -1,4 +1,6 @@
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import sys
 sys.path.append('..')
 from utils import *
@@ -8,8 +10,6 @@ import tensorflow.compat.v1 as tf
 ## Code based on OthelloNNet with minimal changes.
 
 tf.disable_v2_behavior()
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class SotfNNet():
     def __init__(self, game, args):
